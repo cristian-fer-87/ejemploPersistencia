@@ -15,8 +15,11 @@ require_once './php/Persona.php';
 $codigo = $_GET['codigoPersona'];
 $persona = Persona::buscarPersona($codigo);
 ?>
-        <form name="editarPersona" action="/php/nuevaPersona.php">
+        <form method="POST" name="editarPersona" action="php/nuevaPersona.php">
             <input type="hidden" name="codigoPersona" id="codigoPersona" value="<?PHP echo $codigo?>">
+            <input type="text" name="nombre" id="nombre" value="<?PHP echo $persona->getNombre()?>">
+            <input type="text" name="apellido" id="apellido" value="<?PHP echo $persona->getApellido()?>">
+            <input type="submit" value="Guardar">
         </form>
     </body>
 </html>
