@@ -1,7 +1,14 @@
+<?php
+    session_start();
+    if(empty($_SESSION['usuario'])) {
+        include_once './iniciarSesion.html';
+    }else {
+?>
 <html>
 <head>
 </head>
 <body>
+    <p>Bienvenido <?PHP echo $_SESSION['usuario']?>, <a href="php/logout.php">cerrar sesion</a></p>
 <a href="index.php">Alta Persona</a>
 <table border="1">
     <thead>
@@ -32,3 +39,5 @@ endforeach;
 
 </body>
 </html>
+<?PHP
+    }
